@@ -1,0 +1,170 @@
+@use './abstract' as * with (
+  $breakpoints: (
+    'sm': 640px,
+    'md': 768px,
+    'lg': 1024px,
+    'xl': 1280px,
+  )
+);
+
+.bg {
+  @include options($theme, 'hover') using ($value) {
+    background: $value;
+  }
+}
+
+.text {
+  @include options($theme, 'hover') using ($value) {
+    color: $value;
+  }
+}
+
+// .bg-gradient {
+//   @include options($gradient) using ($value) {
+//     background: $value;
+//   }
+// }
+
+// .text-gradient {
+//   @include options($gradient) using ($value) {
+//     background: $value;
+//   }
+// }
+
+@include variants('responsive') using ($props...) {
+  .p {
+    @include options($spacing, $props...) using ($value) {
+      padding: $value;
+    }
+  }
+
+  .px {
+    @include options($spacing, $props...) using ($value) {
+      padding-right: $value;
+      padding-left: $value;
+    }
+  }
+
+  .py {
+    @include options($spacing, $props...) using ($value) {
+      padding-bottom: $value;
+      padding-top: $value;
+    }
+  }
+
+  .pt {
+    @include options($spacing, $props...) using ($value) {
+      padding-top: $value;
+    }
+  }
+
+  .pr {
+    @include options($spacing, $props...) using ($value) {
+      padding-right: $value;
+    }
+  }
+
+  .pb {
+    @include options($spacing, $props...) using ($value) {
+      padding-bottom: $value;
+    }
+  }
+
+  .pl {
+    @include options($spacing, $props...) using ($value) {
+      padding-left: $value;
+    }
+  }
+
+  .m {
+    @include options($spacing, $props...) using ($value) {
+      margin: $value;
+    }
+  }
+
+  .mx {
+    @include options($spacing, $props...) using ($value) {
+      margin-right: $value;
+      margin-left: $value;
+    }
+  }
+
+  .my {
+    @include options($spacing, $props...) using ($value) {
+      margin-bottom: $value;
+      margin-top: $value;
+    }
+  }
+
+  .mt {
+    @include options($spacing, $props...) using ($value) {
+      margin-top: $value;
+    }
+  }
+
+  .mr {
+    @include options($spacing, $props...) using ($value) {
+      margin-right: $value;
+    }
+  }
+
+  .mb {
+    @include options($spacing, $props...) using ($value) {
+      margin-bottom: $value;
+    }
+  }
+
+  .ml {
+    @include options($spacing, $props...) using ($value) {
+      margin-left: $value;
+    }
+  }
+
+  .text {
+    @include options($fontsize, $props...) using ($value) {
+      font-size: $value;
+    }
+    @include options($lineheight, $props...) using ($value) {
+      line-height: $value;
+    }
+    @include options($align, $props...) using ($value) {
+      text-align: $value;
+    }
+  }
+
+  .h {
+    @include options($height, $props...) using ($value) {
+      height: $value;
+    }
+  }
+
+  .w {
+    @include options($width, $props...) using ($value) {
+      width: $value;
+    }
+  }
+
+  .min-h {
+    @include options($height, $props...) using ($value) {
+      min-height: $value;
+    }
+  }
+
+  .min-w {
+    @include options($width, $props...) using ($value) {
+      min-width: $value;
+    }
+  }
+
+  .max-h {
+    @include options($height, $props...) using ($value) {
+      max-height: $value;
+    }
+  }
+
+  .max-w {
+    @include options($width, $props...) using ($value) {
+      max-width: $value;
+    }
+  }
+}
