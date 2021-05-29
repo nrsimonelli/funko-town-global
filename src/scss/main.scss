@@ -93,14 +93,86 @@ html {
   }
 }
 
+.bg-currrent {
+  background: currentColor;
+}
+
+.bg-transparent {
+  background: transparent;
+}
+
+.text-currrent {
+  color: currentColor;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+.bg-moon {
+  @include moon-gradient-bg;
+}
+
+.hover\:bg-moon:hover {
+  @include moon-gradient-bg;
+}
+
+.text-moon {
+  @include moon-gradient-text;
+}
+
+.hover\:text-moon:hover {
+  @include cloud-gradient-text;
+}
+
+.bg-cloud {
+  @include cloud-gradient-bg;
+}
+
+.hover\:bg-cloud:hover {
+  @include cloud-gradient-bg;
+}
+
+.text-cloud {
+  @include cloud-gradient-text;
+}
+
+.hover\:text-cloud:hover {
+  @include cloud-gradient-text;
+}
+
 .bg {
-  @include options($theme, 'hover') using ($value) {
+  @include options($theme-colors, 'hover') using ($value) {
     background: $value;
   }
 }
 
 .text {
-  @include options($theme, 'hover') using ($value) {
+  @include options($theme-colors, 'hover') using ($value) {
+    color: $value;
+  }
+}
+
+.bg {
+  @include options($theme-base, 'hover') using ($value) {
+    background: $value;
+  }
+}
+
+.text {
+  @include options($theme-base, 'hover') using ($value) {
+    color: $value;
+  }
+}
+
+.bg {
+  @include options($theme-text, 'hover') using ($value) {
+    background: $value;
+  }
+}
+
+.text {
+  @include options($theme-text, 'hover') using ($value) {
     color: $value;
   }
 }
