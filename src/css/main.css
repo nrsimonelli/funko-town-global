@@ -203,6 +203,10 @@ body {
   border: 2px solid #a855f7;
 }
 
+.hero-root {
+  min-height: calc(100vh - 60px);
+}
+
 /* Flex */
 .flex {
   display: flex;

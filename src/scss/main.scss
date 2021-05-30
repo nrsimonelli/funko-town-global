@@ -19,6 +19,10 @@ body {
   border: 2px solid $accent;
 }
 
+.hero-root {
+  min-height: calc(100vh - 60px);
+}
+
 /* Flex */
 
 .flex {
