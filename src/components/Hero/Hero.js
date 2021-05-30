@@ -2,6 +2,7 @@ import React from 'react';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
+import PopCard from '../PopCard/PopCard';
 
 const data = [
   {
@@ -89,15 +90,11 @@ const Hero = () => {
             Hero
           </div>
           {data.map((pop, index) => (
-            <div
-              id={index}
-              className='pop-card bg-primary-light mx-4 flex items-center'
-            >
-              <div>{pop.title}</div>
-              <div className='pop-image'>
-                <img src={`${pop.image}`} alt='' />
-              </div>
-            </div>
+            <PopCard
+              title={pop.title}
+              image={pop.image}
+              key={index}
+            />
           ))}
         </div>
       </div>
