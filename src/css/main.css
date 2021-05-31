@@ -207,6 +207,12 @@ body {
   min-height: calc(100vh - 60px);
 }
 
+.pop-image img {
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px 10px 10px 10px;
+}
+
 /* Flex */
 .flex {
   display: flex;
@@ -216,6 +222,10 @@ body {
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 /* Main Axis Alignment */

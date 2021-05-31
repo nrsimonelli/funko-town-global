@@ -84,10 +84,10 @@ const Hero = () => {
   return (
     <div className='root min-h-screen text-gray-light bg-primary-darker flex justify-between'>
       <Nav />
-      <div className='hero-root flex justify-start items-center flex-grow b'>
-        <div className='container w-full b'>
-          <div className='hero-title text-3xl sm:text-5xl lg:text-6xl'>
-            Hero
+      <div className='hero-root flex justify-center items-center flex-grow'>
+        <div className='container flex flex-wrap b'>
+          <div className='hero-title text-3xl sm:text-5xl lg:text-6xl py-4 text-center'>
+            Hello Friend
           </div>
           {data.map((pop, index) => (
             <PopCard
