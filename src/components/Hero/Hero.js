@@ -85,8 +85,8 @@ const Hero = () => {
     <div className='root min-h-screen text-gray-light bg-primary-darker flex justify-between'>
       <Nav />
       <div className='hero-root flex justify-center items-center flex-grow'>
-        <div className='container flex flex-wrap b'>
-          <div className='hero-title text-3xl sm:text-5xl lg:text-6xl py-4 text-center'>
+        <div className='container flex-row flex-wrap justify-center b'>
+          <div className='hero-title text-3xl sm:text-5xl lg:text-6xl py-4 text-center w-full'>
             Hello Friend
           </div>
           {data.map((pop, index) => (
