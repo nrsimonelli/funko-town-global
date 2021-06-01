@@ -3,6 +3,7 @@ import React from 'react';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import PopCard from '../PopCard/PopCard';
+import SearchBar from '../SearchBar/SearchBar';
 
 const data = [
   {
@@ -89,6 +90,7 @@ const Hero = () => {
           <div className='hero-title text-3xl sm:text-5xl lg:text-6xl py-4 text-center w-full'>
             Hello Friend
           </div>
+          <SearchBar />
           {data.map((pop, index) => (
             <PopCard
               title={pop.title}
