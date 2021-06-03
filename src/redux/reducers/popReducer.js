@@ -8,7 +8,7 @@ const popReducer = (
 
     case 'POP_LIST_ERROR':
       console.log(action.err);
-      return { pop: {}, error: true, searching: false };
+      return { ...state, error: true, searching: false };
 
     case 'POP_LIST_REQUEST':
       return { ...state, error: false, searching: true };

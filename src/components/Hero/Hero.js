@@ -18,26 +18,22 @@ const Hero = (props) => {
   //   }
   // }, [dispatch, props.popList]);
 
-  const requestList = () => {
-    console.log('requesting');
-    dispatch({ type: 'POP_LIST_REQUEST' });
-  };
-  const requestConfirm = () => {
-    console.log('confirmed');
-    dispatch({ type: 'POP_LIST_FETCH' });
+  const searchRequest = (query) => {
+    console.log('requesting with query:', query);
+    dispatch({ type: 'POP_LIST_FETCH', params: { query } });
   };
 
   return (
     <div className='root min-h-screen text-gray-light bg-primary-darker flex justify-between'>
       <Nav />
-      <div className='hero-root flex justify-center items-center flex-grow'>
+      <div className='hero-root flex justify-start items-center flex-grow'>
         {!props.popList.error ? (
-          <div className='container flex-row flex-wrap justify-center b'>
+          <div className='container flex-row flex-wrap justify-center'>
             <div className='hero-title text-3xl sm:text-5xl lg:text-6xl py-4 text-center w-full'>
               Hello Friend
             </div>
-            <SearchBar />
-            {!props.popList.searching && props.popList === null ? (
+            <SearchBar search={searchRequest} />
+            {props.popList.pop !== null ? (
               <>
                 {props.popList.pop.map((pop, index) => (
                   <PopCard
@@ -47,9 +43,7 @@ const Hero = (props) => {
                   />
                 ))}
               </>
-            ) : (
-              <div>{JSON.stringify(props.popList)}</div>
-            )}
+            ) : null}
           </div>
         ) : (
           <NotFound />
