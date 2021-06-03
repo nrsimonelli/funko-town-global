@@ -5,37 +5,54 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import PopCard from '../PopCard/PopCard';
 import SearchBar from '../SearchBar/SearchBar';
+import NotFound from '../NotFound/NotFound';
+import { Link } from 'react-router-dom';
 
 const Hero = (props) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!props.popList) {
-      dispatch({ type: 'FETCH_ALL' });
-      console.log('fetching now');
-    }
-  }, [dispatch, props.popList]);
+  // useEffect(() => {
+  //   if (props.popList.pop === null) {
+  //     dispatch({ type: 'POP_LIST_FETCH' });
+  //     console.log('fetching now');
+  //   }
+  // }, [dispatch, props.popList]);
+
+  const requestList = () => {
+    console.log('requesting');
+    dispatch({ type: 'POP_LIST_REQUEST' });
+  };
+  const requestConfirm = () => {
+    console.log('confirmed');
+    dispatch({ type: 'POP_LIST_FETCH' });
+  };
 
   return (
     <div className='root min-h-screen text-gray-light bg-primary-darker flex justify-between'>
       <Nav />
       <div className='hero-root flex justify-center items-center flex-grow'>
-        {props.popList ? (
+        {!props.popList.error ? (
           <div className='container flex-row flex-wrap justify-center b'>
             <div className='hero-title text-3xl sm:text-5xl lg:text-6xl py-4 text-center w-full'>
               Hello Friend
             </div>
             <SearchBar />
-            {props.popList.map((pop, index) => (
-              <PopCard
-                title={pop.title}
-                image={pop.image}
-                key={index}
-              />
-            ))}
+            {!props.popList.searching && props.popList === null ? (
+              <>
+                {props.popList.pop.map((pop, index) => (
+                  <PopCard
+                    title={pop.title}
+                    image={pop.image}
+                    key={index}
+                  />
+                ))}
+              </>
+            ) : (
+              <div>{JSON.stringify(props.popList)}</div>
+            )}
           </div>
         ) : (
-          <div>LOADING</div>
+          <NotFound />
         )}
       </div>
       <Footer />

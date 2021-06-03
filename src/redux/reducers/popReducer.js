@@ -1,10 +1,17 @@
-const popReducer = (state = null, action) => {
+const popReducer = (
+  state = { pop: null, searching: false, error: false },
+  action
+) => {
   switch (action.type) {
-    case 'SET_ALL':
-      return action.payload;
+    case 'POP_LIST_SET':
+      return { pop: action.payload, error: false, searching: false };
 
-    case 'CLEAR_ALL':
-      return {};
+    case 'POP_LIST_ERROR':
+      console.log(action.err);
+      return { pop: {}, error: true, searching: false };
+
+    case 'POP_LIST_REQUEST':
+      return { ...state, error: false, searching: true };
 
     default:
       return state;
