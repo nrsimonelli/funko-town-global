@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-function* fetchPopList() {
+function* fetchPopList(params) {
   try {
-    const response = yield axios.get('/api/');
+    const response = yield axios.get('/api/', params);
     yield put({ type: 'POP_LIST_SET', payload: response.data });
   } catch (err) {
     yield put({ type: 'POP_LIST_ERROR', err });

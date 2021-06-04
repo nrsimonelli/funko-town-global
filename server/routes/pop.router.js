@@ -4,38 +4,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   let queryString = `
-  SELECT * FROM funko LIMIT 100;
+  SELECT * FROM funko WHERE title ILIKE '%${req.query.query}%';
   `;
-  pool
-    .query(queryString)
-    .then((result) => {
-      res.send(result.rows);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-router.get('/first', (req, res) => {
-  let queryString = `
-      SELECT * FROM hero_info WHERE id = $1;
-    `;
-  pool
-    .query(queryString, [req.query.heroId])
-    .then((result) => {
-      res.send(result.rows);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
-});
-
-router.get('/search', (req, res) => {
-  let queryString = `
-        SELECT * FROM hero_info WHERE name ILIKE '%${req.query.string}%' ORDER BY id ASC;
-      `;
   pool
     .query(queryString)
     .then((result) => {
