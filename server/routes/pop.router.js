@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   let queryString = `
-  SELECT * FROM funko WHERE title ILIKE '%${req.query.query}%';
+  SELECT * FROM funko WHERE title ILIKE '%${req.query.query}%' OR series ILIKE '%${req.query.query}%';
   `;
   pool
     .query(queryString)
